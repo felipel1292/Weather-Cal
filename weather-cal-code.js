@@ -929,7 +929,7 @@ const weatherCal = {
 
     if (!covidData || covidData.cacheExpired) {
       try {
-        covidData = await new Request("https://coronavirus-19-api.herokuapp.com/countries/" + this.settings.covid.country.trim()).loadJSON()
+        covidData = await new Request("https://disease.sh/v3/covid-19/countries/" + this.settings.covid.country.trim() + "?yesterday=true").loadJSON()
         this.fm.writeString(covidPath, JSON.stringify(covidData))
       } catch {}
     }
